@@ -1,0 +1,10 @@
+{
+  "name": "MUSE Apex Protocol",
+  "short_name": "MUSE Racing",
+  "start_url": ".",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "description": "Ultra-realistic cross-platform 3D racing game"
+}
