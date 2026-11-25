@@ -1,0 +1,13 @@
+{
+  "name": "VANTA GP — Sunset Circuit",
+  "short_name": "VANTA GP",
+  "description": "A cinematic cross-platform 3D arcade racer. Three laps of neon coastal asphalt.",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#04060b",
+  "theme_color": "#04060b",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
