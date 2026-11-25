@@ -1,0 +1,8 @@
+{
+  "name": "mimo-velocity-tests",
+  "private": true,
+  "description": "Dev-only verification harness for MIMO VELOCITY (Playwright driving Brave)",
+  "devDependencies": {
+    "playwright-core": "^1.65.1"
+  }
+}
