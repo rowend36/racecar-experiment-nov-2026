@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#080a0b" />
+    <meta name="description" content="HUNGER APEX — a shader-driven cross-platform racing experience." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>HUNGER APEX</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game-canvas" aria-label="3D racing game"></canvas>
+      <div id="ui-root"></div>
+      <div id="loading-screen">
+        <div class="loading-mark">H</div>
+        <div class="loading-title">HUNGER <span>APEX</span></div>
+        <div class="loading-track"><i></i></div>
+        <p id="loading-status">Initializing renderer</p>
+      </div>
+      <noscript>This game requires JavaScript and WebGL 2.</noscript>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

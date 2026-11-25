@@ -1,0 +1,26 @@
+{
+  "name": "hunger-apex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "HUNGER APEX — a cross-platform, shader-driven 3D racing game.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "test:browser": "npm run build && playwright test",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/three": "^0.183.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.8",
+    "vitest": "^4.0.18"
+  }
+}

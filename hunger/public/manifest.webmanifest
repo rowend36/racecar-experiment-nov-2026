@@ -1,0 +1,13 @@
+{
+  "name": "HUNGER APEX",
+  "short_name": "HUNGER",
+  "description": "A shader-driven 3D racing experience.",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#080a0b",
+  "theme_color": "#080a0b",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
