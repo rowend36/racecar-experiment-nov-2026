@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0b0e14" />
+    <title>APEX VELOCITY v2 — 3D Racing</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e14'/%3E%3Ctext x='16' y='23' font-size='18' font-weight='900' text-anchor='middle' fill='%23c8ff2e' font-family='sans-serif'%3EA%3C/text%3E%3C/svg%3E" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+
+    <div id="menu" class="overlay visible">
+      <div class="menu-card">
+        <div class="brand"><span class="acid">APEX</span> VELOCITY <span class="v2">v2</span></div>
+        <div class="tagline">SUNSET COAST GP &middot; 3 LAPS &middot; 4 RACERS</div>
+        <div class="section-label">MACHINE</div>
+        <div id="car-select" class="car-row"></div>
+        <div id="car-stats" class="car-stats"></div>
+        <div class="section-label">PAINT</div>
+        <div id="paint-row" class="paint-row"></div>
+        <div class="settings-grid">
+          <label>QUALITY
+            <select id="quality">
+              <option value="ultra">ULTRA</option>
+              <option value="high">HIGH</option>
+              <option value="performance">PERFORMANCE</option>
+            </select>
+          </label>
+          <label>STEER SENS
+            <input id="sensitivity" type="range" min="0.35" max="1" step="0.01" value="0.72" />
+          </label>
+          <label>SOUND
+            <button id="mute-btn" class="chip">ON</button>
+          </label>
+        </div>
+        <div id="menu-best" class="menu-best"></div>
+        <button id="start-btn" class="start-btn">START RACE</button>
+        <div class="hints">WASD / arrows drive &middot; SHIFT nitro &middot; SPACE drift &middot; C camera &middot; R reset &middot; ESC pause &middot; M mute &middot; gamepad + touch supported</div>
+      </div>
+    </div>
+
+    <div id="hud" class="hidden">
+      <div class="hud-top">
+        <div class="pill" id="hud-pos">P4</div>
+        <div class="pill" id="hud-lap">LAP 1/3</div>
+        <div class="pill time" id="hud-time">0:00.000</div>
+      </div>
+      <div class="hud-best"><span id="hud-last"></span><span id="hud-best"></span></div>
+      <canvas id="minimap" width="170" height="170"></canvas>
+      <div id="fps" class="fps"></div>
+      <div class="hud-speed">
+        <div id="speed-num">0</div>
+        <div class="speed-unit">km/h</div>
+        <div id="gear">N</div>
+        <div class="nitro-wrap"><div id="nitro-bar"></div><span>N₂O</span></div>
+      </div>
+      <div id="drift-flag" class="flag hidden">DRIFT</div>
+      <div id="wrongway-flag" class="flag danger hidden">WRONG WAY</div>
+      <div id="offroad-flag" class="flag warn hidden">OFF ROAD</div>
+    </div>
+
+    <div id="countdown" class="hidden"></div>
+    <div id="flash" class="hidden"></div>
+
+    <div id="touch" class="hidden">
+      <div class="touch-left">
+        <button id="t-left">&#9664;</button>
+        <button id="t-right">&#9654;</button>
+      </div>
+      <div class="touch-right">
+        <button id="t-nitro">N₂O</button>
+        <button id="t-drift">DRIFT</button>
+        <button id="t-brake">BRAKE</button>
+        <button id="t-gas">GAS</button>
+      </div>
+    </div>
+
+    <div id="pause" class="overlay hidden">
+      <div class="menu-card narrow">
+        <div class="brand small">PAUSED</div>
+        <button id="resume-btn" class="start-btn">RESUME</button>
+        <button id="restart-btn" class="ghost-btn">RESTART</button>
+        <button id="quit-btn" class="ghost-btn">QUIT TO MENU</button>
+      </div>
+    </div>
+
+    <div id="results" class="overlay hidden">
+      <div class="menu-card">
+        <div id="results-head" class="brand small">P1 — VICTORY</div>
+        <div id="results-sub" class="tagline"></div>
+        <div id="results-table" class="results-table"></div>
+        <button id="again-btn" class="start-btn">RACE AGAIN</button>
+        <button id="menu-btn" class="ghost-btn">BACK TO MENU</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
