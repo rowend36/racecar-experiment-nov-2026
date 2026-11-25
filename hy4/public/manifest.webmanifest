@@ -1,0 +1,14 @@
+{
+  "name": "REDLINE GP",
+  "short_name": "REDLINE",
+  "description": "High-performance 3D arcade racing",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#070910",
+  "theme_color": "#070910",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#070910" />
+  <meta name="description" content="REDLINE GP — a high-performance 3D racing game." />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <title>REDLINE GP</title>
+</head>
+<body>
+  <div id="app">
+    <!-- Canvas leaves the Tab order outside a race: a fresh page load must
+         start on the menu, never on an invisible full-screen element. -->
+    <canvas id="game" tabindex="-1" aria-label="Racing game viewport"></canvas>
+
+    <div id="loading" class="overlay">
+      <div class="loader-mark">R<span>/</span>GP</div>
+      <div class="loader-bar"><i></i></div>
+      <div class="loader-text">PREPARING THE GRID</div>
+    </div>
+
+    <!-- ============ MAIN MENU ============ -->
+    <section id="menu" class="screen hidden">
+      <div class="menu-vignette"></div>
+      <div class="menu-top">
+        <div class="brand">
+          <div class="brand-kicker">NEON BAY MOTORSPORT</div>
+          <h1>REDLINE<span>GP</span></h1>
+          <p class="brand-sub">Coastline Circuit · 3 Laps · Six Car Grid</p>
+        </div>
+        <div class="menu-top-actions">
+          <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">SOUND ON</button>
+          <button class="icon-btn" id="fs-btn" aria-label="Toggle fullscreen">FULLSCREEN</button>
+        </div>
+      </div>
+
+      <div class="menu-body">
+        <div class="panel garage">
+          <div class="panel-head"><span>01</span> SELECT MACHINE</div>
+          <div id="car-list" class="car-list"></div>
+          <div class="paint-row">
+            <div class="panel-sub">FINISH</div>
+            <div id="paint-list" class="paint-list"></div>
+          </div>
+          <div id="car-stats" class="stat-bars"></div>
+        </div>
+
+        <div class="panel setup">
+          <div class="panel-head"><span>02</span> RACE SETUP</div>
+          <div class="setting-row">
+            <label>CONDITIONS</label>
+            <div id="weather-list" class="seg"></div>
+          </div>
+          <div class="setting-row">
+            <label>GRAPHICS</label>
+            <div id="quality-list" class="seg"></div>
+          </div>
+          <div class="setting-row slider">
+            <label for="steer-range">STEERING <b id="steer-val">78%</b></label>
+            <input id="steer-range" type="range" min="35" max="140" value="78" />
+          </div>
+          <div class="setting-row slider">
+            <label for="assist-range">ASSIST <b id="assist-val">60%</b></label>
+            <input id="assist-range" type="range" min="0" max="100" value="60" />
+          </div>
+          <div class="setting-row slider">
+            <label for="shake-range">CAMERA SHAKE <b id="shake-val">80%</b></label>
+            <input id="shake-range" type="range" min="0" max="100" value="80" />
+          </div>
+          <div class="record-line"><span>PERSONAL BEST LAP</span><b id="menu-best">--:--.---</b></div>
+          <button id="start-btn" class="primary-btn">START RACE <span>→</span></button>
+          <div class="hint">WASD / ARROWS DRIVE · SHIFT NITRO · SPACE DRIFT · C CAMERA · ESC PAUSE</div>
+        </div>
+      </div>
+      <div class="menu-footer">PROCEDURAL ASSETS · 120 HZ PHYSICS · BUILT FOR SPEED</div>
+    </section>
+
+    <!-- ============ HUD ============ -->
+    <section id="hud" class="hidden">
+      <div class="hud-top-left">
+        <div class="hud-pill pos-pill"><small>POS</small><b id="hud-pos">4<sup>TH</sup></b></div>
+        <div class="hud-pill lap-pill"><small>LAP</small><b id="hud-lap">1<sup>/3</sup></b></div>
+        <div class="hud-time">
+          <div><small>RACE</small><b id="hud-time">00:00.000</b></div>
+          <div><small>BEST</small><b id="hud-best">--:--.---</b></div>
+          <div><small>LAST</small><b id="hud-last">--:--.---</b></div>
+        </div>
+      </div>
+      <div class="hud-top-right">
+        <canvas id="minimap" width="180" height="180"></canvas>
+        <div class="hud-meta"><span id="hud-fps">60 FPS</span><span id="hud-weather">SUNSET</span></div>
+      </div>
+      <button id="hud-pause" class="hud-pause" aria-label="Pause">II</button>
+      <button id="hud-camera" class="hud-camera" aria-label="Change camera">CAM</button>
+
+      <div id="center-msg" class="center-msg"></div>
+      <div id="countdown" class="countdown"></div>
+      <div id="warn" class="warn"></div>
+
+      <div class="hud-bottom-right">
+        <div class="speedo">
+          <svg viewBox="0 0 240 240" aria-hidden="true">
+            <circle cx="120" cy="120" r="98" class="dial-bg" />
+            <circle cx="120" cy="120" r="98" class="dial-arc" />
+            <circle cx="120" cy="120" r="80" class="dial-inner" />
+            <g id="ticks"></g>
+            <line id="needle" x1="120" y1="120" x2="120" y2="38" class="needle" />
+            <circle cx="120" cy="120" r="7" class="hub" />
+          </svg>
+          <div class="speed-readout"><b id="hud-speed">0</b><small>KM/H</small></div>
+          <div id="hud-gear" class="gear">1</div>
+        </div>
+        <div class="bars">
+          <div class="bar-row"><small>N₂O</small><div class="bar"><i id="nitro-bar"></i></div></div>
+          <div class="bar-row"><small>DRIFT</small><div class="bar"><i id="drift-bar"></i></div></div>
+        </div>
+      </div>
+
+      <div class="touch-controls">
+        <div class="touch-left">
+          <button data-touch="left" aria-label="Steer left">◀</button>
+          <button data-touch="right" aria-label="Steer right">▶</button>
+        </div>
+        <div class="touch-right">
+          <button data-touch="drift" class="small">DRIFT</button>
+          <button data-touch="nitro" class="small">N₂O</button>
+          <button data-touch="brake">BRAKE</button>
+          <button data-touch="gas">GAS</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAUSE ============ -->
+    <section id="pause" class="screen modal hidden">
+      <div class="dialog">
+        <div class="dialog-kicker">RACE PAUSED</div>
+        <h2>CATCH YOUR BREATH</h2>
+        <button id="resume-btn" class="primary-btn">RESUME <span>→</span></button>
+        <button id="restart-btn" class="ghost-btn">RESTART RACE</button>
+        <button id="quit-btn" class="ghost-btn">RETURN TO GARAGE</button>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section id="results" class="screen modal hidden">
+      <div class="dialog wide">
+        <div class="dialog-kicker" id="result-kicker">RACE COMPLETE</div>
+        <h2 id="result-title">P1 — VICTORY</h2>
+        <div class="result-grid">
+          <div><small>TOTAL TIME</small><b id="result-total">--:--.---</b></div>
+          <div><small>BEST LAP</small><b id="result-best">--:--.---</b></div>
+          <div><small>TOP SPEED</small><b id="result-top">0 KM/H</b></div>
+        </div>
+        <div id="result-standings" class="standings"></div>
+        <button id="result-restart" class="primary-btn">RACE AGAIN <span>→</span></button>
+        <button id="result-menu" class="ghost-btn">RETURN TO GARAGE</button>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
