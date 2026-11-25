@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080a0b">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="One prompt, six AI-built 3D racers, zero human code. Explore the experiment and play every build.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/site.css">
+  <title>APEX — Six AI Racers, One Prompt</title>
+</head>
+<body>
+  <a class="skip-link" href="#exhibits">Skip to the games</a>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="APEX experiment, back to top">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M7 49 25 15h14l18 34H44L32 29 20 49H7Z" fill="currentColor"/>
+          <path d="M23 38h18l-5 11H28l-5-11Z" fill="currentColor"/>
+          <path d="M4 55h56v5H4z" fill="currentColor"/>
+        </svg>
+        <span class="brand-word">APEX<span>/</span>EXPERIMENT</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#exhibits">The grid</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#method">Method</a>
+        <a href="#verdict">Verdict</a>
+      </nav>
+      <span class="header-edition">NOV 2026 · VOL. 01</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker"><span aria-hidden="true"></span> ONE EVENING · ONE PROMPT · ZERO HUMAN CODE</p>
+          <h1 id="hero-title">ONE PROMPT.<br><span>SIX RACERS.</span></h1>
+          <p class="hero-lede">Four blind builds. Two second-wave builds. A playable museum of what happened when AI agents tried to build an Asphalt-like 3D racer in a single sitting.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#exhibits">Enter the grid <span aria-hidden="true">↘</span></a>
+            <a class="button button-secondary" href="#method">Read the method <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <aside class="prompt-card" aria-labelledby="prompt-title">
+          <div class="prompt-topline"><span>THE ORIGINAL PROMPT</span><span>01 / 01</span></div>
+          <h2 id="prompt-title" class="sr-only">The original experiment prompt</h2>
+          <blockquote>
+            “I want to make a professional 3D racing game like Asphalt — ultra-realistic, professional shaders, etc. Build in any language of your choice but cross-platform. Highest optimal performance.”
+          </blockquote>
+          <div class="prompt-footer"><span>4 AGENTS STARTED BLIND</span><span>2 SECOND-WAVE BUILDS</span></div>
+          <svg class="prompt-circuit" viewBox="0 0 420 150" aria-hidden="true" focusable="false">
+            <path d="M18 112C58 112 43 28 101 28s33 91 91 91 54-83 107-83 41 57 103 57"/>
+            <path class="circuit-dash" d="M18 112C58 112 43 28 101 28s33 91 91 91 54-83 107-83 41 57 103 57"/>
+          </svg>
+        </aside>
+      </section>
+
+      <dl class="hero-stats" aria-label="Experiment at a glance">
+        <div><dt>Playable builds</dt><dd>06</dd></div>
+        <div><dt>Blind runs</dt><dd>04</dd></div>
+        <div><dt>Second wave</dt><dd>02</dd></div>
+        <div><dt>Estimated compute</dt><dd>&lt; $0.05</dd></div>
+      </dl>
+
+      <aside class="winner-strip" aria-label="Final overall winner">
+        <span class="winner-label">FINAL VERDICT</span>
+        <p><strong>OVERALL WINNER: MIMO VELOCITY</strong> — “Best game on the grid.”</p>
+        <a href="#mimo">See why <span aria-hidden="true">→</span></a>
+      </aside>
+
+      <section class="section exhibits" id="exhibits" aria-labelledby="exhibits-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker"><span aria-hidden="true"></span> THE GRID / 06 BUILDS</p>
+            <h2 id="exhibits-title">Different spikes.<br><span>Same starting line.</span></h2>
+          </div>
+          <div class="section-intro">
+            <p>Every build is preserved and playable. The first four raced blind; the second wave studied the field before writing code.</p>
+            <div class="legend" aria-label="Build classes">
+              <span><i class="legend-dot blind" aria-hidden="true"></i> Blind build</span>
+              <span><i class="legend-dot informed" aria-hidden="true"></i> Second wave</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-grid">
+          <article class="game-card" id="deepseek" aria-labelledby="deepseek-title">
+            <div class="card-media">
+              <img src="./assets/screens/deepseek-race.png" alt="VANTA GP racing through a sunset coastal city" width="1440" height="900" loading="lazy" decoding="async">
+              <span class="card-number" aria-hidden="true">01</span>
+              <span class="class-badge blind">BLIND BUILD</span>
+            </div>
+            <div class="card-body">
+              <p class="agent-line">DEEPSEEK <span>/</span> THE ARTIST</p>
+              <h3 id="deepseek-title">VANTA GP</h3>
+              <p class="stack">TypeScript · Three.js · Vite</p>
+              <p class="verdict">The presentation artist: neon spectacle, analog instruments, and the cleanest track placement on the grid.</p>
+              <a class="play-link" href="./deepseek/" aria-label="Play VANTA GP">Play VANTA GP <span aria-hidden="true">→</span></a>
+              <details class="gallery">
+                <summary>Menu + race screenshots</summary>
+                <div class="gallery-grid">
+                  <figure><img src="./assets/screens/deepseek-menu.png" alt="VANTA GP main menu" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Menu</figcaption></figure>
+                  <figure><img src="./assets/screens/deepseek-race.png" alt="VANTA GP race HUD and sunset circuit" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Race</figcaption></figure>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="game-card featured" id="hunger" aria-labelledby="hunger-title">
+            <div class="card-media">
+              <img src="./assets/screens/hunger-race.png" alt="HUNGER APEX race with acid-lime HUD on a sunset city circuit" width="1440" height="900" loading="lazy" decoding="async">
+              <span class="card-number" aria-hidden="true">02</span>
+              <span class="class-badge blind">BLIND BUILD</span>
+              <span class="crown-badge">UI CROWN</span>
+            </div>
+            <div class="card-body">
+              <p class="agent-line">HUNGER <span>/</span> THE ENGINEER</p>
+              <h3 id="hunger-title">HUNGER APEX</h3>
+              <p class="stack">TypeScript · Three.js r187 · Vite</p>
+              <p class="verdict">The engineering benchmark: tested physics, accessible controls, and the grid’s best interface.</p>
+              <a class="play-link" href="./hunger/" aria-label="Play HUNGER APEX">Play HUNGER APEX <span aria-hidden="true">→</span></a>
+              <details class="gallery">
+                <summary>Menu + race screenshots</summary>
+                <div class="gallery-grid">
+                  <figure><img src="./assets/screens/hunger-menu.png" alt="HUNGER APEX main menu and garage" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Menu</figcaption></figure>
+                  <figure><img src="./assets/screens/hunger-race.png" alt="HUNGER APEX race HUD and sunset city circuit" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Race</figcaption></figure>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="game-card winner" id="mimo" aria-labelledby="mimo-title">
+            <div class="card-media">
+              <img src="./assets/screens/mimo-race.png" alt="MIMO VELOCITY racing through a neon city with a custom WebGL HUD" width="1440" height="900" loading="lazy" decoding="async">
+              <span class="card-number" aria-hidden="true">03</span>
+              <span class="class-badge blind">BLIND BUILD</span>
+              <span class="crown-badge">OVERALL WINNER</span>
+            </div>
+            <div class="card-body">
+              <p class="agent-line">MIMO <span>/</span> THE HARDWARE PURIST</p>
+              <h3 id="mimo-title">MIMO VELOCITY</h3>
+              <p class="stack">Vanilla JS · Custom WebGL2 · Web Audio</p>
+              <p class="verdict">The overall winner: a from-scratch GPU pipeline with textured roads, realistic lights, and no engine safety net.</p>
+              <a class="play-link" href="./mimo/" aria-label="Play MIMO VELOCITY">Play MIMO VELOCITY <span aria-hidden="true">→</span></a>
+              <details class="gallery">
+                <summary>Menu + race screenshots</summary>
+                <div class="gallery-grid">
+                  <figure><img src="./assets/screens/mimo-menu.png" alt="MIMO VELOCITY main menu" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Menu</figcaption></figure>
+                  <figure><img src="./assets/screens/mimo-race.png" alt="MIMO VELOCITY race HUD on a rain-slick neon circuit" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Race</figcaption></figure>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="game-card" id="muse" aria-labelledby="muse-title">
+            <div class="card-media">
+              <img src="./assets/screens/muse-race.png" alt="MUSE Apex Protocol race through a procedural coastal city" width="1440" height="900" loading="lazy" decoding="async">
+              <span class="card-number" aria-hidden="true">04</span>
+              <span class="class-badge blind">BLIND BUILD</span>
+            </div>
+            <div class="card-body">
+              <p class="agent-line">MUSE <span>/</span> THE SPRINTER</p>
+              <h3 id="muse-title">MUSE Apex Protocol</h3>
+              <p class="stack">TypeScript · Three.js · Vite</p>
+              <p class="verdict">The one-shot sprinter: sharp steering feel and a complete first artifact in roughly thirteen minutes.</p>
+              <a class="play-link" href="./muse/" aria-label="Play MUSE Apex Protocol">Play MUSE Apex Protocol <span aria-hidden="true">→</span></a>
+              <details class="gallery">
+                <summary>Menu + race screenshots</summary>
+                <div class="gallery-grid">
+                  <figure><img src="./assets/screens/muse-menu.png" alt="MUSE Apex Protocol main menu" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Menu</figcaption></figure>
+                  <figure><img src="./assets/screens/muse-race.png" alt="MUSE Apex Protocol race HUD and coastal circuit" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Race</figcaption></figure>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="game-card" id="muse-v2" aria-labelledby="muse-v2-title">
+            <div class="card-media">
+              <img src="./assets/screens/muse-v2-race.png" alt="APEX VELOCITY v2 racing on the Sunset Coast GP circuit" width="1280" height="720" loading="lazy" decoding="async">
+              <span class="card-number" aria-hidden="true">05</span>
+              <span class="class-badge informed">SECOND WAVE</span>
+            </div>
+            <div class="card-body">
+              <p class="agent-line">MUSE-V2 <span>/</span> SECOND WAVE</p>
+              <h3 id="muse-v2-title">APEX VELOCITY v2</h3>
+              <p class="stack">TypeScript · Three.js · Vite</p>
+              <p class="verdict">The second-wave build: a tighter arcade package with car selection, nitro, drift, and a tested race flow.</p>
+              <a class="play-link" href="./muse-v2/" aria-label="Play APEX VELOCITY v2">Play APEX VELOCITY v2 <span aria-hidden="true">→</span></a>
+              <details class="gallery">
+                <summary>Menu + race screenshots</summary>
+                <div class="gallery-grid">
+                  <figure><img src="./assets/screens/muse-v2-menu.png" alt="APEX VELOCITY v2 main menu" width="1280" height="720" loading="lazy" decoding="async"><figcaption>Menu</figcaption></figure>
+                  <figure><img src="./assets/screens/muse-v2-race.png" alt="APEX VELOCITY v2 race HUD and Sunset Coast GP" width="1280" height="720" loading="lazy" decoding="async"><figcaption>Race</figcaption></figure>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="game-card" id="hy4" aria-labelledby="hy4-title">
+            <div class="card-media">
+              <img src="./assets/screens/hy4-race.png" alt="REDLINE GP racing through Neon Bay with a motorsport HUD" width="1440" height="900" loading="lazy" decoding="async">
+              <span class="card-number" aria-hidden="true">06</span>
+              <span class="class-badge informed">SECOND WAVE</span>
+              <span class="crown-badge">STEERING CROWN</span>
+            </div>
+            <div class="card-body">
+              <p class="agent-line">HY4 <span>/</span> THE HANDLING OUTLIER</p>
+              <h3 id="hy4-title">REDLINE GP</h3>
+              <p class="stack">TypeScript · Three.js · Vite</p>
+              <p class="verdict">The handling standout: best steering feel on the grid, with a keyboard defect that survived the finish.</p>
+              <a class="play-link" href="./hy4/" aria-label="Play REDLINE GP">Play REDLINE GP <span aria-hidden="true">→</span></a>
+              <details class="gallery">
+                <summary>Menu + race screenshots</summary>
+                <div class="gallery-grid">
+                  <figure><img src="./assets/screens/hy4-menu.png" alt="REDLINE GP main menu and garage" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Menu</figcaption></figure>
+                  <figure><img src="./assets/screens/hy4-race.png" alt="REDLINE GP race HUD on the Neon Bay circuit" width="1440" height="900" loading="lazy" decoding="async"><figcaption>Race</figcaption></figure>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section scoreboard-section" id="scoreboard" aria-labelledby="scoreboard-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="kicker"><span aria-hidden="true"></span> LOCKED BUILD CLOCKS</p>
+            <h2 id="scoreboard-title">The scoreboard.</h2>
+          </div>
+          <p class="section-intro">Active minutes count distinct minutes with agent messages. Wall-clock spans include idle gaps and are intentionally excluded.</p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Build scoreboard" tabindex="0">
+          <table>
+            <caption class="sr-only">Six game builds, their competition class, active build time, and approximate code size</caption>
+            <thead>
+              <tr><th scope="col">Agent</th><th scope="col">Build</th><th scope="col">Class</th><th scope="col">Active</th><th scope="col">Code</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">deepseek</th><td>VANTA GP</td><td>Blind</td><td>~128 min</td><td>~6.2k TS</td></tr>
+              <tr><th scope="row">hunger</th><td>HUNGER APEX</td><td>Blind</td><td>~110 min</td><td>~6.3k TS</td></tr>
+              <tr><th scope="row">mimo</th><td>MIMO VELOCITY</td><td>Blind</td><td>~160 min</td><td>~5.9k JS</td></tr>
+              <tr><th scope="row">muse</th><td>MUSE Apex Protocol</td><td>Blind</td><td>~10 min</td><td>~3.1k TS</td></tr>
+              <tr><th scope="row">muse-v2</th><td>APEX VELOCITY v2</td><td>Second wave</td><td>~13 min</td><td>~4k TS</td></tr>
+              <tr><th scope="row">hy4</th><td>REDLINE GP</td><td>Second wave</td><td>~57 min</td><td>~4.8k TS</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Clocks freeze at each agent’s last game-code edit. Later summaries, handoffs, and analysis are excluded. Estimated compute for the whole evening was under five cents.</p>
+      </section>
+
+      <section class="section method-section" id="method" aria-labelledby="method-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="kicker"><span aria-hidden="true"></span> THE METHOD / AND THE CHEAT</p>
+            <h2 id="method-title">Not a fair race.<br><span>A useful experiment.</span></h2>
+          </div>
+        </div>
+        <div class="method-grid">
+          <article class="method-card">
+            <span class="method-index">01</span>
+            <h3>Same prompt, different spikes</h3>
+            <p>No one told the agents to specialize. Visuals, engineering rigor, raw GPU work, and speed emerged anyway.</p>
+          </article>
+          <article class="method-card">
+            <span class="method-index">02</span>
+            <h3>Unequal time-to-polish</h3>
+            <p>Muse got one roughly thirteen-minute pass, then went read-only. Deepseek, Hunger, and Mimo kept iterating. Muse-v2 and Hy4 studied the blind builds first.</p>
+          </article>
+          <article class="method-card">
+            <span class="method-index">03</span>
+            <h3>Human taste did the last mile</h3>
+            <p>Corrections and category calls converted different spike profiles into quality. These are museum artifacts of different moments, not identical sittings.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section control-section" id="seventh-entry" aria-labelledby="seventh-entry-title">
+        <div class="control-layout">
+          <div class="control-copy">
+            <p class="kicker"><span aria-hidden="true"></span> THE CONTROL GROUP / WEB CHAT ONLY</p>
+            <h2 id="seventh-entry-title">Apex Rush.<br><span>Unranked.</span></h2>
+            <p>Sonnet 5.5 Medium (web chat, free tier) submitted <strong>Apex Rush</strong>: one 19.8KB HTML file plus a vendored 603KB Three.js r128 build and its MIT license. Everything is local; unlike Haiku’s entry, which hotlinked its engine, Apex Rush runs offline.</p>
+            <p>Apex again. HUNGER APEX, MUSE Apex Protocol, and APEX VELOCITY v2 all used the word first. The source contains one literal <code>THREE</code>, in <code>const T=THREE</code>; then the single-letter alias takes the wheel. This is a real WebGL racer, with Canvas 2D on texture and minimap duty. Its own README documents Arrows/WASD, Space handbrake, Shift nitro, touch controls, three laps against three AI, and drift-charged nitro.</p>
+          </div>
+          <aside class="control-panel" aria-label="Apex Rush submission facts">
+            <div class="control-panel-head"><span>APEX RUSH</span><span>NOT RANKED</span></div>
+            <dl class="control-facts">
+              <div><dt>Game file</dt><dd>19.8 KB</dd></div>
+              <div><dt>Engine</dt><dd>r128 / 603 KB</dd></div>
+              <div><dt>Renderer</dt><dd>WebGL</dd></div>
+              <div><dt>Offline</dt><dd>Ready</dd></div>
+            </dl>
+            <p class="control-offline"><span aria-hidden="true">✓</span> Fully local: vendored Three.js r128 and MIT license included.</p>
+            <a class="button button-secondary control-play" href="./seventh-entry/apex-rush/index.html">Play Apex Rush <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+        <p class="control-lesson">The control group had no file tools, iteration loop, or verification pass.</p>
+      </section>
+
+      <section class="section verdict-section" id="verdict" aria-labelledby="verdict-title">
+        <div class="verdict-statement">
+          <p class="kicker"><span aria-hidden="true"></span> THE TAKEAWAY</p>
+          <h2 id="verdict-title">“Compute was never the constraint. <span>Time, taste, and quota patience were.</span>”</h2>
+          <p>All six shipped a playable 3D racer. The bugs were human-grade; so were the judgment calls that separated a technical demo from a game worth driving.</p>
+        </div>
+        <div class="crowns" aria-label="Category winners">
+          <div><span>OVERALL</span><strong>MIMO</strong></div>
+          <div><span>UI</span><strong>HUNGER</strong></div>
+          <div><span>ENGINEERING</span><strong>HUNGER</strong></div>
+          <div><span>STEERING FEEL</span><strong>HY4</strong></div>
+          <div><span>WORLD VISUALS</span><strong>MIMO</strong></div>
+          <div><span>FASTEST BUILD</span><strong>MUSE</strong></div>
+        </div>
+        <div class="post-race-note">
+          <span class="note-label">POST-RACE NOTE</span>
+          <p>Hy4’s handling won on feel, but its keyboard controls remained broken after repeated fixes. <strong>Green tests are not a working game;</strong> hands-on playtesting caught what mattered.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="#top" aria-label="APEX experiment, back to top">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <path d="M7 49 25 15h14l18 34H44L32 29 20 49H7Z" fill="currentColor"/>
+            <path d="M23 38h18l-5 11H28l-5-11Z" fill="currentColor"/>
+            <path d="M4 55h56v5H4z" fill="currentColor"/>
+          </svg>
+          <span class="brand-word">APEX<span>/</span>EXPERIMENT</span>
+        </a>
+        <p>Six games. One static museum. No server config.</p>
+      </div>
+      <div class="footer-links">
+        <a class="source-link" href="https://github.com/rowend36/racecar-experiment-nov-2026">Source on GitHub <span aria-hidden="true">↗</span></a>
+        <a class="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

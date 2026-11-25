@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#04060b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="VANTA GP" />
+    <meta name="description" content="VANTA GP — a cinematic cross-platform 3D arcade racer. Three laps of neon coastal asphalt." />
+    <title>VANTA GP — Sunset Circuit</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2304060b'/%3E%3Cpath d='M10 46 22 14h10l-8 22h18l-4 10H10z' fill='%2335e6ff'/%3E%3Cpath d='M38 46l9-24h7l-9 24h-7z' fill='%23ff2d73'/%3E%3C/svg%3E" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <script type="module" crossorigin src="./assets/index-GYezFSgR.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-By5lIR8q.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene"></canvas>
+      <div id="fx"></div>
+
+      <div id="loading">
+        <div class="loading-inner">
+          <div class="loading-logo">VANTA<span>GP</span></div>
+          <div class="loading-sub">SUNSET CIRCUIT</div>
+          <div class="loading-bar"><i id="loading-fill"></i></div>
+          <div class="loading-row"><span id="loading-label">INITIALISING</span><span>WEBGL2 / HDR</span></div>
+        </div>
+      </div>
+
+      <div id="menu" class="menu">
+        <div class="menu-shade"></div>
+        <div class="menu-grain"></div>
+
+        <header class="brand">
+          <div class="brand-logo">VANTA<span>GP</span></div>
+          <div class="brand-sub">SUNSET CIRCUIT <i>/</i> 2026</div>
+        </header>
+
+        <div class="menu-hero">
+          <div class="eyebrow"><i></i>ULTRA GT SERIES</div>
+          <h1>OWN THE<br /><em>APEX.</em></h1>
+          <p class="lede">Three laps of neon coastal asphalt. Six hypercars. One last light.</p>
+          <div class="start-row">
+            <button id="start-btn" class="cta" type="button">
+              <span>START RACE</span><b>→</b>
+            </button>
+            <div class="personal-best">
+              <span>PERSONAL BEST LAP</span>
+              <strong id="menu-best">--:--.---</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-settings">
+          <div class="settings-block">
+            <div class="side-label">CONDITIONS</div>
+            <div class="seg" data-setting="weather">
+              <button data-value="sunset" class="active" type="button">SUNSET</button>
+              <button data-value="storm" type="button">STORM</button>
+            </div>
+          </div>
+          <div class="settings-block">
+            <div class="side-label">QUALITY</div>
+            <div class="seg" data-setting="quality">
+              <button data-value="ultra" class="active" type="button">ULTRA</button>
+              <button data-value="high" type="button">HIGH</button>
+              <button data-value="performance" type="button">PERF</button>
+            </div>
+          </div>
+          <button id="sound-btn" class="sound-btn" type="button">SOUND · ON</button>
+        </div>
+
+        <div class="menu-carousel">
+          <div class="carousel-head">
+            <span class="side-label">SELECT MACHINE</span>
+            <span class="carousel-line"></span>
+            <span class="side-label">FINISH</span>
+          </div>
+          <div id="car-list" class="car-list"></div>
+          <div class="carousel-foot">
+            <div id="paint-list" class="paint-list"></div>
+            <div class="carousel-note">3 LAPS <i>·</i> 2.3 KM <i>·</i> 6 CARS <i>·</i> ARCADE GT</div>
+          </div>
+        </div>
+
+        <footer class="menu-footer">
+          <span>VANTA MOTORSPORT <i>/</i> PROCEDURAL HDR ENGINE</span>
+          <span>WASD · SPACE DRIFT · SHIFT N₂O · C CAMERA</span>
+        </footer>
+      </div>
+
+      <div id="hud">
+        <div class="hud-tl">
+          <div class="pos-wrap">
+            <span class="pos-prefix">P</span><span id="hud-pos">6</span><span id="hud-pos-total" class="pos-total">/6</span>
+          </div>
+          <div class="hud-laprow"><span class="chip">LAP</span><span id="hud-lap">1/3</span></div>
+          <div id="hud-car" class="hud-car">VXR-01</div>
+        </div>
+
+        <div class="hud-top">
+          <div class="timer">
+            <div class="timer-main"><span class="timer-label">LAP TIME</span><span id="hud-time">0:00.000</span></div>
+            <div class="timer-sub"><span>BEST</span><span id="hud-best">--:--.---</span></div>
+          </div>
+        </div>
+
+        <div class="minimap-wrap">
+          <div class="minimap-head"><span>SUNSET CIRCUIT</span><span class="live">LIVE</span></div>
+          <canvas id="minimap"></canvas>
+        </div>
+
+        <div class="speed-wrap">
+          <svg id="speedo" viewBox="0 0 280 280">
+            <defs>
+              <linearGradient id="gaugeGrad" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#35e6ff" />
+                <stop offset="0.55" stop-color="#8df0ff" />
+                <stop offset="1" stop-color="#ff2d73" />
+              </linearGradient>
+              <radialGradient id="gaugeBg" cx="0.5" cy="0.4" r="0.7">
+                <stop offset="0" stop-color="rgba(20,30,48,0.5)" />
+                <stop offset="1" stop-color="rgba(5,8,14,0.02)" />
+              </radialGradient>
+            </defs>
+            <circle cx="140" cy="140" r="132" fill="url(#gaugeBg)" stroke="rgba(120,180,255,0.09)" stroke-width="1" />
+            <path id="gauge-arc" d="M 56.56 223.44 A 118 118 0 1 1 223.44 223.44" fill="none" stroke="url(#gaugeGrad)" stroke-width="4" stroke-linecap="round" />
+            <g id="gauge-ticks"></g>
+            <g id="gauge-needle" transform="rotate(135 140 140)">
+              <line x1="140" y1="140" x2="224" y2="140" stroke="#ff3b63" stroke-width="2.6" stroke-linecap="round" />
+              <line x1="140" y1="140" x2="112" y2="140" stroke="#ff3b63" stroke-width="5" stroke-linecap="round" opacity="0.22" />
+            </g>
+            <circle cx="140" cy="140" r="6" fill="#0a0e15" stroke="#ff3b63" stroke-width="2" />
+          </svg>
+          <div class="speed-readout"><span id="hud-speed">0</span><span class="speed-unit">KM/H</span></div>
+          <div class="gear-readout"><span class="gear-label">GEAR</span><span id="hud-gear">1</span></div>
+          <div class="nitro-wrap">
+            <div class="nitro-head"><span>N₂O</span><span>SHIFT</span></div>
+            <div class="nitro-track"><div id="hud-nitro" class="nitro-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="hud-bl">
+          <div id="hud-drift-wrap" class="drift-wrap"><span>DRIFT</span><div class="drift-track"><div id="hud-drift"></div></div></div>
+          <div class="hud-hint">WASD · SPACE DRIFT · SHIFT N₂O · C CAM · ESC PAUSE</div>
+        </div>
+
+        <div id="hud-message" class="message"></div>
+        <div id="wrongway" class="wrongway">WRONG WAY</div>
+        <div id="countdown" class="countdown"></div>
+        <div class="hud-fps"><span id="hud-fps">60</span> FPS</div>
+      </div>
+
+      <div id="pause" class="overlay">
+        <div class="panel">
+          <div class="eyebrow"><i></i>RACE PAUSED</div>
+          <h2>TAKE A<br /><em>BREATH.</em></h2>
+          <p class="panel-sub">SUNSET CIRCUIT · 3 LAPS</p>
+          <button id="resume-btn" class="cta small" type="button"><span>RESUME</span><b>→</b></button>
+          <button id="restart-btn" class="ghost" type="button">RESTART RACE</button>
+          <button id="quit-btn" class="ghost" type="button">MAIN MENU</button>
+          <div class="panel-note">ESC TO RESUME</div>
+        </div>
+      </div>
+
+      <div id="results" class="overlay">
+        <div class="panel results-panel">
+          <div class="eyebrow" id="results-badge">SUNSET CIRCUIT</div>
+          <h2 id="results-title">P1 / 6</h2>
+          <div id="results-body" class="res-table"></div>
+          <div id="results-stats" class="res-stats"></div>
+          <div class="results-actions">
+            <button id="again-btn" class="cta small" type="button"><span>RACE AGAIN</span><b>↻</b></button>
+            <button id="menu-btn" class="ghost" type="button">MAIN MENU</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="touch">
+        <button class="touch-btn steer left" type="button" data-touch="left">◀</button>
+        <button class="touch-btn steer right" type="button" data-touch="right">▶</button>
+        <button class="touch-btn brake" type="button" data-touch="brake">BRAKE</button>
+        <button class="touch-btn gas" type="button" data-touch="gas">GAS</button>
+        <button class="touch-btn drift" type="button" data-touch="drift">DRIFT</button>
+        <button class="touch-btn nitro" type="button" data-touch="nitro">N₂O</button>
+        <button class="touch-btn pause" type="button" data-action="pause">II</button>
+      </div>
+    </div>
+  </body>
+</html>

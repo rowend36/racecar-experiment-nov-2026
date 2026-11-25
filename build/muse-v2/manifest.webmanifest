@@ -1,0 +1,11 @@
+{
+  "name": "APEX VELOCITY v2",
+  "short_name": "ApexV2",
+  "description": "Procedural 3D arcade racing — Sunset Coast GP",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "theme_color": "#0b0e14",
+  "background_color": "#0b0e14",
+  "icons": []
+}
