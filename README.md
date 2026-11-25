@@ -131,6 +131,17 @@ placement is judgement, not math. And the experiment's sharpest finding: agents
 differ in *spike profile*, while human taste (corrections + crown calls) is what
 converts spikes into quality.
 
+## The Seventh Entry (unranked — the control group)
+
+Haiku (web chat, free tier) submitted `apex-drift.zip`: a single 15,849-byte
+HTML file. It hotlinks Three.js r158 from a CDN — the only entry that cannot
+run offline — builds its world from boxes (8 `BoxGeometry` calls, 5 functions
+total), and borrows its typography from Google Fonts. Excluded from the
+scoreboard on scope grounds; preserved here deliberately. This is what the same
+prompt produces with no agent harness around it: no file tools, no iteration
+loop, no verification pass, nobody to say the steering is backwards. The joke
+writes itself. The lesson is real: the harness is the product.
+
 ## What 2026 Looks Like From Here
 
 - **All four shipped a playable 3D racer in one sitting**, from one paragraph.
